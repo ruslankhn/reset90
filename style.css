@@ -9,3 +9,13 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}i
 .background-inner {
     background-image: unset!important;
 }
+.btn-red {
+    color: #fff !important;
+    background-color: red !important;
+    border-color: red !important;
+}
+.btn-red:hover {
+    color: red !important;
+    background-color: transparent !important;
+    border-color: red !important;
+}
