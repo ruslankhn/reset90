@@ -19,3 +19,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}i
     background-color: transparent !important;
     border-color: red !important;
 }
+.text-red-color {
+    color: #8B0000 !important;
+    fill: #8B0000 !important;
+}
