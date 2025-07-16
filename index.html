@@ -1178,54 +1178,47 @@
         </div>
 
         <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const accordions = document.querySelectorAll('[data-toggle="collapse"]');
+        document.addEventListener('DOMContentLoaded', () => {
+            const accordions = document.querySelectorAll('[data-toggle="collapse"]');
 
-  accordions.forEach(link => {
-    const targetId = link.getAttribute('href');
-    const content = document.querySelector(targetId);
+            accordions.forEach(link => {
+                const targetId = link.getAttribute('href');
+                const content = document.querySelector(targetId);
 
-    // Убедимся, что блок скрыт по умолчанию
-    content.style.height = '0px';
-    content.style.overflow = 'hidden';
-    content.style.transition = 'height 0.4s ease';
+                content.style.height = '0px';
+                content.style.overflow = 'hidden';
+                content.style.transition = 'height 0.4s ease';
 
-    link.addEventListener('click', event => {
-      event.preventDefault();
+                link.addEventListener('click', event => {
+                event.preventDefault();
 
-      const isOpen = content.classList.contains('open');
+                const isOpen = content.classList.contains('open');
 
-      // Закрыть все открытые
-      document.querySelectorAll('.panel-collapse.open').forEach(openContent => {
-        openContent.style.height = '0px';
-        openContent.classList.remove('open');
-      });
+                document.querySelectorAll('.panel-collapse.open').forEach(openContent => {
+                    openContent.style.height = '0px';
+                    openContent.classList.remove('open');
+                });
 
-      if (!isOpen) {
-        // Открыть выбранный
-        content.classList.add('open');
+                if (!isOpen) {
+                    content.classList.add('open');
+                    content.style.height = 'auto';
+                    const fullHeight = content.scrollHeight + 'px';
+                    content.style.height = '0px';
 
-        // Временно выставляем auto для расчёта полной высоты
-        content.style.height = 'auto';
-        const fullHeight = content.scrollHeight + 'px';
-        content.style.height = '0px';
+                    setTimeout(() => {
+                        content.style.height = fullHeight;
+                    }, 10);
+                }
+                });
 
-        // Срабатывает анимация
-        setTimeout(() => {
-          content.style.height = fullHeight;
-        }, 10);
-      }
-    });
-
-    // При завершении анимации сбросить height на auto
-    content.addEventListener('transitionend', () => {
-      if (content.classList.contains('open')) {
-        content.style.height = 'auto';
-      }
-    });
-  });
-});
-</script>
+                content.addEventListener('transitionend', () => {
+                    if (content.classList.contains('open')) {
+                        content.style.height = 'auto';
+                    }
+                });
+            });
+        });
+        </script>
 
     </body>
 </html>
