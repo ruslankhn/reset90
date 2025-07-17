@@ -23,3 +23,30 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}i
     color: #8B0000 !important;
     fill: #8B0000 !important;
 }
+.rev-color {
+    background-color: rgba(0, 26, 81, 0.1);
+}
+.rev-color .uncode_text_column {
+    position: relative;
+}
+
+.rev-color .uncode_text_column:before,
+.rev-color .uncode_text_column:after {
+    content: "\201C";
+    position: absolute;
+    font-size: 80px;
+    line-height: 0.5;
+    color: #757f9a;
+    font-style: normal;
+}
+
+.rev-color .uncode_text_column:before {
+    top: -16px;
+    left: -28px;
+}
+
+.rev-color .uncode_text_column:after {
+    content: "\201D";
+    right: -28px;
+    bottom: -50px;
+}
